@@ -337,9 +337,22 @@ cifar10_config.training.print_step = 500
 cifar10_config.training.summary_step = 500
 cifar10_config.training.split = "train"
 
-cifar100_config = edict(cifar10_config)
+cifar100_config = edict({'evaluation': {}, 'training': {}, 'dataset': {}})
 cifar100_config.dataset.name = 'cifar100'
 cifar100_config.dataset.num_classes = 100
+cifar100_config.dataset.image_size = 32
+cifar100_config.resnet_size = 32
+cifar100_config.network_fn = cifar_model_fn
+cifar100_config.evaluation.batch_size = 500
+cifar100_config.evaluation.test_set_size = 10000
+cifar100_config.evaluation.split = "test"
+cifar100_config.training.batch_size = 128
+cifar100_config.training.max_iterations = 64000
+cifar100_config.training.ckpt_step = 1000
+cifar100_config.training.eval_step = 5000
+cifar100_config.training.print_step = 500
+cifar100_config.training.summary_step = 500
+cifar100_config.training.split = "train"
 
 imagenet64_config = edict({'evaluation': {}, 'training': {}, 'dataset': {}})
 imagenet64_config.dataset.name = 'imagenet'
